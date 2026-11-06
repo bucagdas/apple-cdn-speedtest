@@ -4,6 +4,20 @@
 
 Compare Apple update CDN servers from your Mac. No Go, Python, AI tool or account is required. The script discovers IPv4/IPv6 addresses, performs bounded HTTPS downloads and prints optional hosts entries. It does not change system settings or install an update.
 
+## Why this exists
+
+On a 1 Gbit/s home connection, my Mac's update download showed about two days remaining. The downloader logs reported roughly 0.15 MB/s. After seeing a similar experience shared online, I investigated with Codex.
+
+We queried different DNS resolvers for `updates.cdn-apple.com` and tested the same Apple update file against the returned IPv4 and IPv6 addresses. Short tests reached 51 to 78 MB/s on alternative endpoints. After changing the hosts entries and restarting the download, the displayed estimate was about 12 minutes.
+
+I built this tool so other Mac users can run that discovery and comparison themselves, without Codex or another AI assistant. It measures candidates on your own connection instead of distributing a fixed IP as a universal fix.
+
+### Before and after
+
+![Before: about two days remaining. After: about 12 minutes remaining.](assets/before-after.png)
+
+*Edited comparison made from my screenshots: the before icon, title and progress bar were adjusted for presentation. The original screenshots show different update totals (23.82 GB and 28.92 GB). These are remaining-time estimates from separate download states, not a controlled same-file benchmark or the actual total installation time. Results vary by connection.*
+
 ## Start
 
 1. Download with **Code > Download ZIP**, then extract the entire folder.

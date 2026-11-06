@@ -4,6 +4,20 @@
 
 Mac'inizden Apple güncelleme sunucularını karşılaştırır. Go, Python, yapay zeka aracı veya hesap gerekmez. IPv4/IPv6 adreslerini bulur, sınırlı HTTPS indirmeleriyle hızlarını ölçer ve isteğe bağlı hosts satırlarını gösterir. Sistem ayarlarını değiştirmez ve güncelleme kurmaz.
 
+## Neden yaptım?
+
+1 Gbit/sn ev internetinde Mac'in güncelleme indirmesi yaklaşık iki gün kaldığını gösteriyordu. İndiricinin kayıtlarında hız yaklaşık 0,15 MB/sn görünüyordu. İnternette benzer bir deneyim paylaşılınca Codex ile birlikte incelemeye başladım.
+
+`updates.cdn-apple.com` için farklı DNS servislerini sorguladık. Dönen IPv4 ve IPv6 adreslerini aynı Apple güncelleme dosyasıyla karşılaştırdık. Alternatif sunuculardaki kısa testlerde 51 ile 78 MB/sn arasında hız gördük. Hosts kayıtlarını değiştirip indirmeyi yeniden başlattıktan sonra ekrandaki tahmin yaklaşık 12 dakikaydı.
+
+Bu aracı, aynı sorunu yaşayan Mac kullanıcıları Codex veya başka bir yapay zeka aracına ihtiyaç duymadan kendileri araştırabilsin diye hazırladım. Sabit bir IP'yi herkese çözüm olarak vermek yerine, adayları kullanıcının kendi bağlantısında ölçüyor.
+
+### Öncesi ve sonrası
+
+![Öncesi: yaklaşık iki gün kaldı. Sonrası: yaklaşık 12 dakika kaldı.](assets/before-after.png)
+
+*Ekran görüntülerimden hazırlanmış düzenlenmiş karşılaştırma: öncesindeki simge, başlık ve ilerleme çubuğu sunum için değiştirildi. Orijinal görüntülerde güncelleme boyutları farklıdır (23,82 GB ve 28,92 GB). Bunlar ayrı indirme durumlarındaki kalan süre tahminleridir; aynı dosyayla kontrollü hız testi veya gerçek toplam kurulum süresi değildir. Sonuçlar bağlantıya göre değişebilir.*
+
 ## Başlangıç
 
 1. **Code > Download ZIP** ile indirin ve klasörün tamamını çıkartın.
